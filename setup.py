@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-with open("README.rst") as readme_file
+with open("README.rst") as readme_file:
     readme=readme_file.read()
 
 setup(
@@ -9,7 +9,7 @@ setup(
     version="0.0.1",
     description="a library for reading matrices and graphs for various libraries",
     long_description=readme,
-    license="BSD2"
+    license="BSD",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -28,7 +28,7 @@ setup(
     packages=find_packages(exclude=['test']),
     install_requires=[],
     extras_require={
-        'numpy' : ['numpy, scipy'],
-        'networkx': ['networkx'],
+        'numpy' : ['numpy', 'scipy'],
+        'networkx': ['networkx']
     }
 )
