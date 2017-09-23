@@ -9,7 +9,7 @@ class EdgeListParser():
         self.default_value = value_fn(default_value)
 
     @ignore_comments
-    def parse(self, line):
+    def _parse(self, line):
         split= line.split()
         source = split[0]
         dest = split[1]
@@ -20,7 +20,7 @@ class EdgeListParser():
         self._builder.add_edge(self.node_fn(source),
                               self.node_fn(dest),
                               self.value_fn(value))
-
-    def build(self):
+    def parse(self, matfile):
+        for line in matfile:
+            self._parse(line)
         return self._builder.build()
-

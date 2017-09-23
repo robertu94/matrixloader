@@ -31,11 +31,3 @@ import matrixloader.formats
 from matrixloader.formats import *
 import matrixloader.builders
 from matrixloader.builders import *
-
-def load(matrix_file, parser):
-    for line in matrix_file:
-        parser.parse(line)
-    return parser.build()
-
-
-

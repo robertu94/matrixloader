@@ -55,9 +55,7 @@ class MatrixMarketParser():
         self._value_fn = value_fn
         self._default_value = value_fn(default_value)
 
-    def parse(self, line):
-        self._state(line)
-
-    def build(self):
+    def parse(self, matfile):
+        for line in matfile:
+            self._state(line)
         return self._builder.build()
-
