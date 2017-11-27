@@ -14,7 +14,7 @@ Getting started as as simple as::
 Builders
 --------------------------------------------------------------------------------
 
-Builders are the adapter for batch building networks/matrices. They provide 4 methods::
+Builders are the adapter for batch building networks/matrices. They provide 3 methods::
 
     add_edge(self, row: int, column: int, value: Any) -> None:
 
