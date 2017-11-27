@@ -31,3 +31,26 @@ import matrixloader.formats
 from matrixloader.formats import *
 import matrixloader.builders
 from matrixloader.builders import *
+import matrixloader.exporter
+from matrixloader.exporter import *
+
+
+def load(infile, builder, default_parser=None):
+    """
+    load file and guess the parser based on the extension
+
+    Args:
+       infile (typing.TextIO): the graph file to parse
+       builder (matrixloader.Builder): the builder for the type to return
+       default_parser (typing.Callable[[matrixloader.Builder], matrixloader.Parser]: if the type is not found use this one
+
+    Returns:
+        graph (typing.Any): the graph constructed by builder
+    """
+    formats = {
+        "mtx": MatrixMarketParser
+    }
+    default_parser = default_parser or (lambda builder: EdgeListParser(builder, zero_indexed=False))
+    extension = infile.name.split('.')[-1]
+    constructor = formats.get(extension, default_parser)
+    return constructor(builder).parse(infile)

@@ -29,6 +29,7 @@ setup(
     install_requires=[],
     extras_require={
         'numpy' : ['numpy', 'scipy'],
-        'networkx': ['networkx']
+        'networkx': ['networkx'],
+        'networkit': ['networkit']
     }
 )
