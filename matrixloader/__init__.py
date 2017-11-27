@@ -33,6 +33,8 @@ import matrixloader.builders
 from matrixloader.builders import *
 import matrixloader.exporter
 from matrixloader.exporter import *
+import matrixloader.adapters
+from matrixloader.adapters import *
 
 
 def load(infile, builder, default_parser=None):

@@ -42,3 +42,20 @@ The constructor MUST accept a builder as the first argument.  It may accept othe
 Parses the infile and returns the result of the builder object.
 
 
+Exporters
+--------------------------------------------------------------------------------
+
+Exporters have the same interface as Builders except that the `build` method SHOULD have side effects such as writing to a file.
+
+Adapters
+--------------------------------------------------------------------------------
+
+Adapters provide a generic implementation of a copy operation  implanted in terms of the `Builder` interface.  It provides two methods::
+
+    __init__(self, builder, **kwargs)
+
+The constructor MUST accept a builder as the first argument.  It may accept other keyword arguments.  The provided builder MUST be used to construct the Graph.
+
+    convert(self, object: Any) -> Any
+
+converts the matrix/network object provided to an implementation defined type using the `Builder` interface.
